@@ -1,0 +1,10 @@
+version: "3"
+services:
+  api-cadastro-de-usuarios:
+    image: bitnami/postgresql
+    ports:
+      - 5455:5432
+    environment:
+      - POSTGRESQL_USERNAME=docker
+      - POSTGRESQL_PASSWORD=docker
+      - POSTGRESQL_DATABASE=apiCadastros

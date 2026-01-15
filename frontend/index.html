@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Mini Supermercado</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="dashboard">
+      <!-- COLUNA ESQUERDA -->
+      <div class="left-column">
+        <!-- Painel Buscar Cliente -->
+        <div class="panel search-panel">
+          <h2><i class="fa fa-user"></i> Buscar Cliente</h2>
+          <input id="cpfInput" placeholder="CPF" />
+          <button id="searchBtn">Buscar</button>
+        </div>
+
+        <!-- Painel Cadastrar Cliente -->
+        <div class="panel register-panel">
+          <h2><i class="fa fa-user-plus"></i> Cadastrar Cliente</h2>
+          <input id="nameInput" placeholder="Nome" />
+          <button id="registerBtn">Cadastrar</button>
+        </div>
+      </div>
+
+      <!-- COLUNA DIREITA -->
+      <div class="right-column">
+        <!-- Painel Registrar Compra -->
+        <div class="panel shopping-panel">
+          <h2><i class="fa fa-shopping-cart"></i> Registrar Compra</h2>
+          <input id="itemsInput" placeholder="Itens (ex: leite, pão)" />
+          <input id="valueInput" type="number" placeholder="Valor" />
+          <button id="shoppingBtn">Registrar Compra</button>
+
+          <div class="discount-bar">
+            <div id="progressBar"></div>
+            <span id="discountInfo"
+              >Desconto: <strong id="discountValue">0%</strong></span
+            >
+          </div>
+        </div>
+
+       <!-- Histórico de Compras -->
+        <div class="panel history-panel">
+        <h2><i class="fa fa-list"></i> Histórico de Compras</h2>
+
+             <!-- Filtros -->
+        <div class="history-filters">
+            <button class="filter-btn active" data-filter="all">Todas</button>
+            <button class="filter-btn" data-filter="discount">Com Desconto</button>
+        </div>
+
+        <ul id="historyList" class="history-list"></ul>
+        </div>
+
+      
+        <!-- Biblioteca QR Code -->
+
+<!-- Modal de Pagamento -->
+<div id="paymentModal" class="modal hidden">
+  <div class="modal-content">
+    <h2>Escolha o meio de pagamento</h2>
+    <div class="payment-options">
+      <button class="payment-btn" data-method="pix">PIX</button>
+      <button class="payment-btn disabled" data-method="credit">Cartão de Crédito</button>
+      <button class="payment-btn disabled" data-method="cash">Dinheiro</button>
+    </div>
+    <div id="paymentCard" class="payment-card hidden">
+      <h3>Pagamento via PIX</h3>
+      <div id="qrCode" class="qr-code"></div>
+      <p>Valor: R$ <span id="paymentValue">0.00</span></p>
+      <button id="confirmPaymentBtn">Confirmar Pagamento</button>
+    </div>
+    <button id="closePaymentModal" class="close-btn">X</button>
+  </div>
+</div>
+
+
+
+
+      <!-- Mensagem flutuante -->
+      <div id="message" class="message"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
