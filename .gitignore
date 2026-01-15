@@ -19,8 +19,6 @@ dist/
 # Prisma
 # =====================
 
-# Client gerado automaticamente
-generated/prisma/
 
 # Banco local (se usar sqlite)
 prisma/*.db
